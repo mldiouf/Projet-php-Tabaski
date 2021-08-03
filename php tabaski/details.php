@@ -2,21 +2,21 @@
 // ON DEMARRE L ASESIO?
 session_start();
 // est ce que l id existe et n est pas vide
-if(isset($_GET['id']) && !empty($_GET['id'])){
+if(isset($_GET['telephone']) && !empty($_GET['telephone'])){
     require_once('Bdd.php');
 
     // on nettoie l id envoyé
-    $id = strip_tags($_GET['id']);
+    $telephone = strip_tags($_GET['telephone']);
 
 
-    $sql = 'SELECT `id`,`DateCotis`, `Mois`, `Motif`, `Montant`, `nom`, `prenom` FROM `cotisation` INNER JOIN `membre` ON cotisation.Matricule=membre.matricule  WHERE `id` = :id;
+    $sql = 'SELECT `id`,`DateCotis`, `Motif`,  `nom`, `prenom` FROM `cotisation` INNER JOIN `membre` ON cotisation.Matricule=membre.matricule  WHERE `telephone` = :telephone;
 ';
 
     // on prepare la requete
     $query = $db->prepare($sql);
 
     // on "accroche" les parametres
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
+    $query->bindValue(':telephone', $telephone, PDO::PARAM_INT);
 
     //  on excute la requete
 
@@ -48,11 +48,10 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     <main class="container-light bg-light text-center text-dark">
         <div class="row">
             <section class="col-12 text-dark">
-                <h1>ID <?= $produit['id'] ?></h1>
+                <p>ID <?= $produit['id'] ?></p>
                 <p> NOM : <?= $produit['nom'] ?></p>
                 <p> PRENOM : <?= $produit['prenom'] ?></p>
                 <p> DATE DE COTISATION : <?= $produit['DateCotis'] ?></p>
-                <p> MOIS A COTISER : <?= $produit['Mois'] ?></p>
                 <p>MOTIF : <?= $produit['Motif'] ?></p>
             </section>
         </div>

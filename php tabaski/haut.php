@@ -27,11 +27,17 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
     <title>ListeMembre</title>
     <style type="text/css">
-        body {
-            font-size: px;
+      @media screen and (max-width: 600px) {
+      .liste {
+      width: 200px;
         }
+      }  
     </style>
 
 </head>
@@ -54,7 +60,7 @@
           <a class="nav-link" href="saisieMembre.php" style="text-decoration:none; "><h5>SAISSIR MEMBRE</h5></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="RechercheCotisation.php" style="text-decoration:none; "><h5>RECHERCHE PAR MOIS</h5></a>
+          <a class="nav-link" href="listeCotisationMois.php" style="text-decoration:none; "><h5>RECHERCHE PAR MOIS</h5></a>
         </li>
        
       </ul>

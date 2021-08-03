@@ -5,8 +5,8 @@ session_start();
 // On inclut la connexion à la base
 require_once('Bdd.php');
 
-$sql = 'SELECT `id`,`DateCotis`, `Mois`, `Motif`, `Montant`, `nom`, `prenom` FROM `cotisation` INNER JOIN `membre` ON cotisation.Matricule=membre.matricule
-';
+$sql = 'SELECT `id`,`DateCotis`, `Mois`, `Motif`, `Montant`, `nom`, `prenom`, `telephone` FROM `cotisation` INNER JOIN `membre` ON cotisation.Matricule=membre.matricule
+ORDER BY `DateCotis` DESC';
 
 // On prépare la requête
 $query = $db->prepare($sql);
@@ -48,15 +48,13 @@ require_once('closeBase.php');
                     }
                 ?>
                 <h1 class="text-dark my-4">Liste Des cotisations</h1>
-                <table class="table table-bordered border-info " style=" font-size: 14px;">
+                <table class="table table-bordered border-info " style=" font-size: 10px;">
                     <thead>
-                        <th>ID COTIS</th>
                         <th>PRENOM</th>
                         <th>NOM</th>
                         <th>MOIS</th>
                         <th>MOTIF</th>
                         <th>MONTANT</th>
-                        <th>date</th>
                         <th>Actions</th>
                     </thead>
                     <tbody>
@@ -65,15 +63,12 @@ require_once('closeBase.php');
                         foreach($result as $produit){
                         ?>
                             <tr>
-                                <td style="width:75px;"><?= $produit['id'] ?></td>
-                                <td style="width:175px;"><?= $produit['prenom'] ?></td>
-                                <td style="width:95px;"><?= $produit['nom'] ?></td>
-                                <td style="width:75px;"><?= $produit['Mois'] ?></td>
-                                <td style="width:75px;"><?= $produit['Motif'] ?></td>
-                                <td style="width:75px;"><?= $produit['Montant'] ?></td>
-                                <td style="width: 95px;"><?= $produit['DateCotis'] ?></td>
-                                <td style="width: 100px;"> 
-                                     <a class="glyphicon glyphicon-eye-open fw-6 mx-2 " href="details.php?id=<?= $produit['id'] ?>"></a>     
+                                <td ><?= $produit['prenom'] ?></td>
+                                 <td ><?= $produit['nom'] ?></td>
+                                <td ><?= $produit['Mois'] ?></td>
+                                <td ><?= $produit['Motif'] ?></td>
+                                <td ><?= $produit['Montant'] ?></td>
+                                <td > 
                                      <a class="glyphicon glyphicon-edit fw-5 mx-2 text-warning" href="Modifier.php?id=<?= $produit['id'] ?>"></a>    
                                      <a class="glyphicon glyphicon-trash fw-5 mx-2 text-danger" href="delete.php?id=<?= $produit['id'] ?>" onclick="return confirm('voulez vous vraiment supprimer cette enregistrement')"></a>
                                 </td>

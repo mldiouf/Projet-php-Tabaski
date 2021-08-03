@@ -126,7 +126,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
                     <div class="form-group">
                     <label for="Montant">Montant</label>
-                        <input type="text" id="Montant" name="Montant" class="form-control" value="<?= $produit['Montant']?>">
+                        <input type="number" id="Montant" name="Montant" class="form-control" value="<?= $produit['Montant']?>">
                     </div>
                     <div class="form-group">
                         <label for="Matricule">Matricule</label>

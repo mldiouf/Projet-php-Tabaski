@@ -127,7 +127,7 @@ if($_POST){
                     </div>
                     <div class="form-group">
                         <label for="Montant">Montant</label>
-                        <input type="text" id="Montant" name="Montant" class="form-control">
+                        <input type="number" id="Montant" name="Montant" class="form-control">
                     </div>
                     
                     <div class="form-group">

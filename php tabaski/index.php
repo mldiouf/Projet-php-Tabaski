@@ -46,7 +46,7 @@
             <button class="btn  btn-lg pt-5 bg-dark" style="margin-left:25%; margin-top:15%"><a href="saisieMembre.php" class="text-white text-center" style="text-decoration:none; " ><h2>Ajouter des Membres</h2></a></button><br>
         </div>
         <div class="col-6 bg-light">
-        <button class="btn  btn-lg pt-5 bg-success" style="margin-left:25%; margin-top:15%"><a href="RechercheCotisation.php" class="text-white text-center" style="text-decoration:none; " ><h2>Recherche Cotisation</h2></a></button><br>
+        <button class="btn  btn-lg pt-5 bg-success" style="margin-left:25%; margin-top:15%"><a href="listeCotisationMois.php" class="text-white text-center" style="text-decoration:none; " ><h2>Recherche COTISATION</h2></a></button><br>
  
         </div>  
     </div>

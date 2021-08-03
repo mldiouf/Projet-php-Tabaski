@@ -46,10 +46,10 @@ require_once('closeBase.php');
                     }
                 ?>
                 <h1 class="my-4">Liste Des Membres</h1>
-                <table class="table table-bordered border-info" style=" font-size: 14px;">
+                <table class="table table-bordered border-info" style=" font-size: 10px;">
                     <thead>
                 
-                        <th> Matricule</th>
+                        <th>ID</th>
                         <th>Prenom</th>
                         <th>Nom</th>
                         <th>Adresse</th>
@@ -70,7 +70,9 @@ require_once('closeBase.php');
                                 <td><?= $produit['nom'] ?></td>
                                 <td><?= $produit['adresse'] ?></td>
                                 <td><?= $produit['telephone'] ?></td>
-                                <td> <a  href="SaisieCotisation.php?matricule=<?= $produit['matricule'] ?>" class="glyphicon glyphicon-plus"></a></td>
+                                <td> 
+                                <a class="glyphicon glyphicon-eye-open fw-6 mx-2 text-success" href="details.php?telephone=<?= $produit['telephone'] ?>"></a>     
+                                <a  href="SaisieCotisation.php?matricule=<?= $produit['matricule'] ?>" class="glyphicon glyphicon-eur"></a></td>
                              
                             </tr>
                         <?php

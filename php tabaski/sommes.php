@@ -1,19 +1,22 @@
-<?php
 
-if(isset($_GET['id']) && !empty($_GET['id'])){
+
+ <?php
+
+if(isset($_GET['telephone']) && !empty($_GET['telephone'])){
     
 // On inclut la connexion à la base
 require_once('Bdd.php');
 
    // on nettoie l id envoyé
-   $id = strip_tags($_GET['id']);
+$telephone = strip_tags($_GET['telephone']);
 
-$sql = 'SELECT  `Mois`,  `Montant` FROM `cotisation` WHERE `id` = :id;';
+$sql = 'SELECT `Mois`, `Montant` FROM `cotisation` INNER JOIN `membre` ON cotisation.Matricule=membre.matricule WHERE telephone = :telephone
+;';
 
 // On prépare la requête
 $query = $db->prepare($sql);
   // on "accroche" les parametres
-  $query->bindValue(':id', $id, PDO::PARAM_INT);
+  $query->bindValue(':telephone', $telephone, PDO::PARAM_INT);
 
 // On exécute la requête
 $query->execute();
@@ -28,12 +31,16 @@ require_once('closeBase.php');
 <?php    
          require_once('haut.php');
 }
-?>
+?> 
+
+
+
+
 
 <body class="bg-light mx-5">
       
 
-    <main class="container-light bg-light text-center text-dark">
+    <main class="container-dark bg-light text-center text-dark mx-5">
         <div class="row">
             <section class="col-12">
             <?php
@@ -52,7 +59,7 @@ require_once('closeBase.php');
                         $_SESSION['message'] = "";
                     }
                 ?>
-                <table class="table text-dark text-center mx-5">
+                <table  class="table table-bordered border-info" style=" font-size: 14px;">
                     <thead>
                       
                         <th>MOIS</th>
@@ -72,7 +79,7 @@ require_once('closeBase.php');
                         ?>
                     </tbody>
                 </table>
-                <a href="listeCotisation.php" class="btn btn-success " style="float:right;">RETOUR</a>
+                <a href="listeMembre.php" class="btn btn-success " style="float:right;">RETOUR</a>
 
             </section>
         </div>
